@@ -1,16 +1,13 @@
 
-var x = "안녕하세요"; //let x
+console.log(num); //undefined이 선언된다.(호이스팅(선언문 이전에 접근))
 
-//......
+var num = 10;
+//let num = 10; //let은 호이스팅 하지만 var와 같이 초기화 하지 않는다.(일시적 사각지대 TDZ)
+ 
+console.log(num); //10이 선언된다.
 
-var x = "hi"; //let x
-
-console.log(x);
 
 function App() {
 
 }
 export default App;
-//같은이름의 변수를 중복 선언하면 보통 코드는 에러가 발생한다.
-//하지만 var는 에러가 발생하지 않는다. 중복선언이 가능하다. 이 점이 매우 안좋다.
-//let 변수는 중복선언이 되지 않는다.
