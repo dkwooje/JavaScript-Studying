@@ -2,14 +2,12 @@
 
 function App() {
 
+  let x = "hello"; //두 변수 x를 var로 바꿔 비교해보자
   if(true){
-    var x ='hi';
-    //  let x ='hi';
+    let x ='hi';  //var로 바꾸면 아래의 변수가 위의 변수를 덮어 씌운다.
+    console.log(x); 
   }
-  console.log(x); //var의 변수 x는 if블록 밖에서도 x가 유효하다. java는 보통 에러가 난다.
-                  //하지만 let의 변수는 java처럼 유효하지 않게 된다.
-                  //let은 블록스코프이기 때문이다.
-                  //블록스코프는 변수를 선언한 블록 내부에서만 유효하기 때문이다.
+  console.log(x);
 }
  
 export default App;
