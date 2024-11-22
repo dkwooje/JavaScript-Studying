@@ -1,34 +1,37 @@
 
 
 function App() {
-/*
-  const object1 = {
-    name: '객체1',
-    mainArrow: () => {
-      console.log(this.name + '입니다.');
-    }
-  };
-  
-  object1.mainArrow();   //화살표 함수는 자신만의 this를 가지지 않는다.
-*/
-const object1 = {
-  name: '객체1',
-  mainArrow: function () {         // 일반 함수로 변경
-    console.log(this.name + '입니다.');
+
+
+  function main(x){
+    console.log('준비작업...');
+    x(); //매게변수 x에 들어있는 콜백함수를 호출
+    console.log('정리작업...');
   }
-};
 
-object1.mainArrow();
-
-const object2 = {
-  name: '객체2',
-  mainArrow: () => {
-    console.log(object2.name + '입니다.'); // object1을 직접 참조
+  function sayHi(){
+    console.log("콜백함수");
   }
-};
 
-object2.mainArrow();
+  main(sayHi); //어떤 함수에 인자로 전달되는 함수를 콜백 함수라고 한다.
 
+///////////////////////////////////////////////////////////////////////////////////
 
+function main2(x){
+  x(); 
+}
+
+main2(function sayHi(){  //호출값에 바로 넣어 줄 수 있고
+  console.log("일반콜백함수");
+});
+
+main2(function (){  //익명함수로 넣어줄 수 있다.
+  console.log("익명콜백함수");
+});
+
+main2( () => {  //화살표 함수도 가능하다. 
+  console.log("화살표 콜백함수");
+});
+             
 }
 export default App;
