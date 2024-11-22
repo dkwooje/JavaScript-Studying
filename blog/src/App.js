@@ -6,7 +6,7 @@ function App() {
   function getData(){
     const promise = new Promise((resolve,reject)=>{ 
       setTimeout(()=>{  
-        const data = {name: '철수'}
+        const data = null;
         if (data){
           console.log('네트워크 요청 성공');
           resolve(data)
@@ -18,15 +18,11 @@ function App() {
 
   return promise;
 }
-/*
-const promise = getData();
-promise.then((data)=>{
-  console.log(data);
-})
-*/
-              
+      
  getData().then((data)=>{
   console.log(`${data.name}님 안녕하세요`);
+}).catch((error)=>{
+    console.log(error)
 })
 
 
@@ -34,4 +30,4 @@ promise.then((data)=>{
 export default App;
 //promise를 사용하는 비동기 함수 만들기
 // then(), catch(), finally() Promise가 제공하는 메서드
-//then: 성공
+//then: 성공, chatch: 실패
