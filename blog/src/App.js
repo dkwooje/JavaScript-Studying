@@ -18,18 +18,27 @@ function App() {
 
   return promise;
 }
-      
- getData().then((data)=>{
-  console.log(`${data.name}님 안녕하세요`);
-}).catch((error)=>{
-    console.log(error)
-}).finally(()=>{
-    console.log('마무리 작업');
-})
+/*      
+const promise = getData();
 
+promise.then((data)=>{
+  console.log(data);
+  return getData();   //promise chaining을 하기 위해서는 함수를 return 해줘야 한다.
+}).then((data)=>{
+  console.log(data);
+  return getData();
+}).then((data)=>{
+  console.log(data);
+});
+*/
 
+//간단히 표현할 수 있다.
+const promise = getData();
+promise
+  .then((data)=>getData(console.log(data)))
+  .then((data)=>getData(console.log(data)))
+  .then((data)=>getData(console.log(data)))
+  .then(console.log)
 }
 export default App;
-//promise를 사용하는 비동기 함수 만들기
-// then(), catch(), finally() Promise가 제공하는 메서드
-//then: 성공, chatch: 실패, finally: 성공과 실패 여부 상관 없이 실행
+//promise chaining.
