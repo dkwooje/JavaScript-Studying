@@ -2,43 +2,25 @@
 
 function App() {
 
+//fetch().then().catch().finally()  //fetch는 promise의 메서드를 사용할 수 있다.
 
-  function getData(){
-    const promise = new Promise((resolve,reject)=>{ 
-      setTimeout(()=>{  
-        const data = {name: '철수'};
-        if (data){
-          console.log('네트워크 요청 성공');
-          resolve(data)
-        } else{
-          reject(new Error('네트워크 문제!!!'));
-        }
-    }, 1000);                   
-  });
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response)=>{
+    console.log(response); //HTTP 정보 출력
+    return response.json(); //json 역시 promise를 반환해준다.
+  })
+  .then((data)=>{
+    console.log(data); //fetch안의 정보를 json 형식으로 출력
+  })
+  .catch(error =>{
+    console.log("에러가 발생했습니다.");
+  })
+  .finally(()=>{
+    console.log('마무리 작업');
+  })
 
-  return promise;
+
 }
-/*      
-const promise = getData();
 
-promise.then((data)=>{
-  console.log(data);
-  return getData();   //promise chaining을 하기 위해서는 함수를 return 해줘야 한다.
-}).then((data)=>{
-  console.log(data);
-  return getData();
-}).then((data)=>{
-  console.log(data);
-});
-*/
-
-//간단히 표현할 수 있다.
-const promise = getData();
-promise
-  .then((data)=>getData(console.log(data)))
-  .then((data)=>getData(console.log(data)))
-  .then((data)=>getData(console.log(data)))
-  .then(console.log)
-}
 export default App;
-//promise chaining.
+//promise의 fetchAPI
