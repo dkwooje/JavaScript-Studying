@@ -2,12 +2,28 @@
 
 function App() {
 
-  setTimeout(function() {
-    console.log("hi")
-  }, 1000); 
 
-// 대표적인 콜백함수인 setTimeout이 있다.
+// 동기적 수행 이해.
+  console.log('작업 1');
+  print();
+  console.log('작업 3');
 
+  function print(){
+    console.log('작업 2');
+  }
+//////////////////////////////////////////////////////////
+
+//비동기적 수행.
+
+setTimeout(()=>{
+  console.log('2');
+}, 2000);
+
+
+console.log('1');
 
 }
 export default App;
+//자바스크립트는 싱글쓰레드 언어이다 : 한번에 한가지만 처리할 수 있다. 하지만 webAPI가 제공되어 비동기적 수행이 가능하다.
+//동기적 수행 : 순서대로 한번에 하나씩 처리. 하나의 작업이 끝나기 전에 뒤에 오는 작업은 수행할 수 없다.(blocking)
+//비동기적 수행 : 한 작업이 진행되는 동안 다른 작업으로 동시에 실행 시킨다.
