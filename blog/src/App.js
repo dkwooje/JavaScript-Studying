@@ -2,28 +2,21 @@
 
 function App() {
 
-
-const main = function(){ //익명함수
-  console.log("hi")
-}
-
-  main() 
-
-const main2 = () => { //화살표함수
-    console.log("hi")
+  function main(){
+    console.log(arguments)
   }
-  
-    main2() 
 
-const main3 = () => console.log("hi")  //코드가 간결하면 중괄호와 return 생략 가능
-    
-      main3() 
+  main(1,2,3,4,5,6,7)
 
-const main4 = () => ({saying: "hi"})      
+  const main2 =(...aaa) =>{
+    console.log(...aaa)
+  }
 
-      console.log(main4())
+  main2(1,2,3,4,5,6,7)
+
+
 }
 export default App;
-//화살표 함수
-//function : 함수 선언식 과 함수 표현식으로 나뉜다.
-//화살표 함수는 함수 표현식(익명함수)를 기반으로 만든다.
+//arguments는 함수에 전달받은 인자를 배열형태의 객체로 만드는 특수 변수이다.
+//하지만 arguments는 익명함수 쓰면 오류가 생긴다.
+//하지만 ...(나머지 매게변수)를 사용하면 표현할 수 있다.
