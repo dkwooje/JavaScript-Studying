@@ -18,14 +18,20 @@ function App() {
 
   return promise;
 }
-
+/*
 const promise = getData();
-
-setTimeout(()=>{                            
-  console.log(promise);
-}, 2000);                   
+promise.then((data)=>{
+  console.log(data);
+})
+*/
+              
+ getData().then((data)=>{
+  console.log(`${data.name}님 안녕하세요`);
+})
 
 
 }
 export default App;
 //promise를 사용하는 비동기 함수 만들기
+// then(), catch(), finally() Promise가 제공하는 메서드
+//then: 성공
