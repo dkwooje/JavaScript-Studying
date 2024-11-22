@@ -2,21 +2,21 @@
 
 function App() {
 
-  function main(){
-    console.log(arguments)
-  }
+  const object1 ={
+    name: '객체1',
+    main: function () {
+      console.log(this.name + '입니다.');
+    }
+  };
 
-  main(1,2,3,4,5,6,7)
+  object1.main(); //객체 1의 main을 호출한다. console의 this는 main을 호출한 객체 1를 가르킨다.
 
-  const main2 =(...aaa) =>{
-    console.log(...aaa)
-  }
+  const object2 ={
+    name: '객체2',
+    main: object1.main 
+  };
 
-  main2(1,2,3,4,5,6,7)
-
+  object2.main(); //객체 2의 main을 호출하고, 객체2의 main은 객체 1의 메인을 가리키지만 console의 this는 객체 2를 가르킨다.
 
 }
 export default App;
-//arguments는 함수에 전달받은 인자를 배열형태의 객체로 만드는 특수 변수이다.
-//하지만 arguments는 익명함수 쓰면 오류가 생긴다.
-//하지만 ...(나머지 매게변수)를 사용하면 표현할 수 있다.
