@@ -1,26 +1,16 @@
 
 
 function App() {
-/*
-function getData(){
-  setTimeout(()=>{
-    console.log('서버에서 데이터를 받았습니다.');
-  }, 2000);
-}
-
-getData();
-console.log('후처리 진행 합니다.');  //getData보다 먼저 진행된다.
-*/
 
 function getData(callBack){
   setTimeout(()=>{
     console.log('서버에서 데이터를 받았습니다.');
-    callBack();
+    callBack({name: '컴퓨터 시작'});
   }, 2000);
 }
 
-getData(()=>{
-  console.log('후처리 진행 합니다.');  
+getData((data)=>{
+  console.log(data.name);  
 });
 
 
