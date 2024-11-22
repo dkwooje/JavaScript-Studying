@@ -1,29 +1,31 @@
 
 
 function App() {
+/*
+function getData(){
+  setTimeout(()=>{
+    console.log('서버에서 데이터를 받았습니다.');
+  }, 2000);
+}
+
+getData();
+console.log('후처리 진행 합니다.');  //getData보다 먼저 진행된다.
+*/
+
+function getData(callBack){
+  setTimeout(()=>{
+    console.log('서버에서 데이터를 받았습니다.');
+    callBack();
+  }, 2000);
+}
+
+getData(()=>{
+  console.log('후처리 진행 합니다.');  
+});
 
 
-// 동기적 수행 이해.
-  console.log('작업 1');
-  print();
-  console.log('작업 3');
-
-  function print(){
-    console.log('작업 2');
-  }
-//////////////////////////////////////////////////////////
-
-//비동기적 수행.
-
-setTimeout(()=>{
-  console.log('2');
-}, 2000);
-
-
-console.log('1');
 
 }
 export default App;
-//자바스크립트는 싱글쓰레드 언어이다 : 한번에 한가지만 처리할 수 있다. 하지만 webAPI가 제공되어 비동기적 수행이 가능하다.
-//동기적 수행 : 순서대로 한번에 하나씩 처리. 하나의 작업이 끝나기 전에 뒤에 오는 작업은 수행할 수 없다.(blocking)
-//비동기적 수행 : 한 작업이 진행되는 동안 다른 작업으로 동시에 실행 시킨다.
+//비동기 콜백
+//비동기 방식의 함수처리후 진행해야하는 함수가 있을 때 사용한다. 비동기-> 비동기 콜백->비동기 후 진행 해야하는 함수
