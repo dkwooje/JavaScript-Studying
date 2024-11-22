@@ -5,9 +5,13 @@ function App() {
 const promise = new Promise((resolve,reject)=>{ //Promise라는 상자 안에 excicutor라는 함수를 전달 받는다. 
                              //성공 resolve 호출, 실패 reject 호출
     setTimeout(()=>{  
-      const data = {name: '철수'};
-      console.log('네트워크 요청 성공');
-      resolve(data)
+      const data = null;
+      if (data){
+        console.log('네트워크 요청 성공');
+        resolve(data)
+      } else{
+        reject(new Error('네트워크 문제!!!'));
+      }
   }, 1000);                   
 });
 
