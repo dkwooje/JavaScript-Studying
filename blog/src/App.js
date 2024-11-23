@@ -29,6 +29,13 @@ function App() {
 
 //getName과 getTodo를 순차적으로 실행하여 총 3초(1초+2초)의 시간이 걸렸다.
 //두 비동기 함수를 동시에(병렬) 처리하기 위해서는 Promise.all을 사용해야 한다.
+
+const promise = Promise.all([getName(), getTodo()])
+promise.then((data)=>{
+  console.log(data);
+});
+
+
 }
 
 export default App;
