@@ -14,8 +14,8 @@ function App() {
   function getTodo(){
     return new Promise((resolve,reject) =>{
       setTimeout(()=>{
-      //  resolve('빵만들기');
-        reject(new Error('에러: 학교 운영하기.'));
+        resolve('빵만들기');
+      //  reject(new Error('에러: 학교 운영하기.'));
       },2000);
     });
   }
@@ -27,18 +27,12 @@ function App() {
     console.log(todo);
   })
 
-//getName과 getTodo를 순차적으로 실행하여 총 3초(1초+2초)의 시간이 걸렸다.
-//두 비동기 함수를 동시에(병렬) 처리하기 위해서는 Promise.all을 사용해야 한
-
-const promise = Promise.all([getName(), getTodo()])
+//Promise.allSettled는 인자로 전달된 모든 Promise를 기다린다.
+//각각의 Promise가 성공했는지 실패했는지 알고 싶을 때 사용한다.
+const promise = Promise.allSettled([getName(), getTodo()])
 promise.then((data)=>{
-  console.log(data);
-}).catch((error)=>{
-  console.log(error);
+  console.log(data)
 })
-// Promise.all안의 배열에서 하나라도 실패하면 reject를 반환시키고 catch블록이 실행된다.
-// catch는 가장 먼저 실패한 promise가 실행된다.
-
 }
 
 export default App;
