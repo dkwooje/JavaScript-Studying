@@ -2,25 +2,35 @@
 
 function App() {
 
-//fetch().then().catch().finally()  //fetch는 promise의 메서드를 사용할 수 있다.
+  function login(username, callback){
+    setTimeout(()=>{
+      callback(username);
+    }, 1000);
+  }
 
-fetch("https://jsonplaceholder.typicode.com/users")
-  .then((response)=>{
-    console.log(response); //HTTP 정보 출력
-    return response.json(); //json 역시 promise를 반환해준다.
-  })
-  .then((data)=>{
-    console.log(data); //fetch안의 정보를 json 형식으로 출력
-  })
-  .catch(error =>{
-    console.log("에러가 발생했습니다.");
-  })
-  .finally(()=>{
-    console.log('마무리 작업');
-  })
+  function addToCart(product,callback){
+    setTimeout(()=>{
+      callback(product);
+    }, 1000);
+  }
+  
+  function makePayment(cardNumber, product, callback){
+    setTimeout(()=>{
+      callback(cardNumber, product);
+    }, 1000);
+  }
 
+  login('피코라',(username) =>{
+    console.log(`${username}님 안녕하세요.`);
+    addToCart('감자', (product) =>{
+      console.log(`${product}를 장바구니에 넣었습니다`);
+       makePayment('0000000000000000', product, (item) =>{
+        console.log(`${product}의 결제가 완료되었습니다`);
+       });
+    });
+  });
 
 }
 
 export default App;
-//promise의 fetchAPI
+//promise 응용
