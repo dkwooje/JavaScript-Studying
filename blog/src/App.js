@@ -2,18 +2,28 @@
 
 function App() {
 
-  //async는 항상 Promise를 return하는 비동기 함수이다. getUser함수는 Promise로 감싸진 상태이다.
- async function getUser(){
-    return '다야';
+ 
+
+  //async를 Promise로 감싸도 그저 Promise로 반환 될 뿐이다.
+  //async : Promise 반환하는 비동기 함수
+ 
+  function networkRequest(){
+    return new Promise((resolve)=>{
+      setTimeout(()=>{
+      console.log('다야가');
+      resolve();
+      },2000);
+    });
+  }
+
+  //getUser가 비동기이기 때문에 networkRequest()를 기다리지 않고 바로 return을 실행한다. 
+  async function getUser(){
+      networkRequest();
+     return "움직였습니다.";
   }
 
   const user = getUser();
-  console.log(user);
-
-  //Promise를 반환하는 것과 같이 반환시켜주면 정상 출력이 가능하다.
   user.then((name)=>console.log(name))
-
-  
 
 }
 
