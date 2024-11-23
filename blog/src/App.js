@@ -41,11 +41,23 @@ function App() {
     });
   }
 
-  login('피코라').then(() =>{addToCart('')})
-  .then((product) =>{makePayment('1234123412341234', product)})
-  .then((product) =>{console.log(`${product} 결제를 완료했습니다.`)})
-  .catch((error) =>{ console.log(error.message)})
-  .finally(()=>{console.log('마무리 작업')})
+  login('피코라').then((username) =>{
+    console.log(`${username}님 환영합니다.`);
+    return addToCart('감자');
+  })
+  .then((product) =>{
+    console.log(`${product}를 장바구니에 담았습니다.`);
+    return makePayment('1234123412341234', product);
+  })
+  .then((product) =>{
+    console.log(`${product} 결제를 완료했습니다.`);
+  })
+  .catch((error) =>{
+    console.log(error.message);
+  })
+  .finally(()=>{
+    console.log('마무리 작업');
+  })
 
 }
 
