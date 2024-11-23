@@ -2,16 +2,24 @@
 
 function App() {
 
- 
+  const fruits = [
+    { name: '배', price: 500},
+    { name: '사과', price: 700},
+    { name: '귤', price: 400},
+    { name: '포도', price: 1500},
+  ]
 
-  async function fetchData(){
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await response.json()
-  console.log(data);
-  }
+  const item = fruits.find((fruit, index) => { 
+      if(fruit.price === 500 && index === 0){
+        return true
+      }
+      return false
+  })
 
-  fetchData();
+  console.log(item);
 }
 export default App;
 
-//fetch API : 특정 URL로 네트워크요청을 보내는 웹 API
+//배열 함수들
+//인덱스 값이 필요하다면 콜백함수 두번째 인자에 index를 추가한다.
+//find 함수: 배열 안에서 특정 조건이 맞는 객체를 찾을 때 사용 한다.
