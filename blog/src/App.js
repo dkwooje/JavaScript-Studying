@@ -40,7 +40,7 @@ function App() {
       }, 1000);
     });
   }
-
+/*
   login('피코라').then((username) =>{
     console.log(`${username}님 환영합니다.`);
     return addToCart('감자');
@@ -55,6 +55,74 @@ function App() {
   .catch((error) =>{
     console.log(error.message);
   })
+*/
+/*                        //아이디 생략 오류 유발
+login().then((username) =>{
+  console.log(`${username}님 환영합니다.`);
+  return addToCart('감자');
+})
+.then((product) =>{
+  console.log(`${product}를 장바구니에 담았습니다.`);
+  return makePayment('1234123412341234', product);
+})
+.then((product) =>{
+  console.log(`${product} 결제를 완료했습니다.`);
+})
+.catch((error) =>{
+  console.log(error.message);
+})
+*/
+/*                            //product 생략 오류 유발  
+login('피코라').then((username) =>{
+  console.log(`${username}님 환영합니다.`);
+  return addToCart();
+})
+.then((product) =>{
+  console.log(`${product}를 장바구니에 담았습니다.`);
+  return makePayment('1234123412341234', product);
+})
+.then((product) =>{
+  console.log(`${product} 결제를 완료했습니다.`);
+})
+.catch((error) =>{
+  console.log(error.message);
+})
+*/
+/*                          //cardNumber 생략 오류 유발
+login('피코라').then((username) =>{
+  console.log(`${username}님 환영합니다.`);
+  return addToCart('감자');
+})
+.then((product) =>{
+  console.log(`${product}를 장바구니에 담았습니다.`);
+  return makePayment('1234', product);
+})
+.then((product) =>{
+  console.log(`${product} 결제를 완료했습니다.`);
+})
+.catch((error) =>{
+  console.log(error.message);
+})
+*/
+
+  login('피코라').then((username) =>{
+    console.log(`${username}님 환영합니다.`);
+    return addToCart('감자');
+  })
+  .then((product) =>{
+    console.log(`${product}를 장바구니에 담았습니다.`);
+    return makePayment('1234123412341234', );
+  })
+  .then((product) =>{
+    console.log(`${product} 결제를 완료했습니다.`);
+  })
+  .catch((error) =>{
+    console.log(error.message);
+  })
+
+
+
+
 
 }
 
