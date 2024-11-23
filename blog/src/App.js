@@ -5,9 +5,9 @@ function App() {
   function getName(){
     return new Promise((resolve,reject) =>{
       setTimeout(()=>{
-     //   resolve('에슈르');
-        reject(new Error('에러: 여기에 없어요'));
-      },1000);
+        resolve('에슈르');
+      //  reject(new Error('에러: 여기에 없어요'));
+      },3000);
     });
   }
 
@@ -15,7 +15,7 @@ function App() {
     return new Promise((resolve,reject) =>{
       setTimeout(()=>{
         resolve('빵만들기');
-      //  reject(new Error('에러: 학교 운영하기.'));
+      // reject(new Error('에러: 학교 운영하기.'));
       },2000);
     });
   }
@@ -27,11 +27,13 @@ function App() {
     console.log(todo);
   })
 
-//Promise.allSettled는 인자로 전달된 모든 Promise를 기다린다.
-//각각의 Promise가 성공했는지 실패했는지 알고 싶을 때 사용한다.
-const promise = Promise.allSettled([getName(), getTodo()])
+//Promise.any() : 전달하는 Promise 중에 가장 먼저 오는 Promise의 값을 가진다.
+//const promise는 모든 Promise가 실패해야지만 실패를 반환한다. AggregateError: All promises were rejected
+const promise = Promise.any([getName(),getTodo()]);
 promise.then((data)=>{
-  console.log(data)
+  console.log(data +"any");
+}).catch((error)=>{
+  console.log(error);
 })
 }
 
