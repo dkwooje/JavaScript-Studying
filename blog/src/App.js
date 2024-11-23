@@ -4,30 +4,38 @@ function App() {
 
  
 
-  //async를 Promise로 감싸도 그저 Promise로 반환 될 뿐이다.
-  //async : Promise 반환하는 비동기 함수
- 
   function networkRequest(){
     return new Promise((resolve)=>{
       setTimeout(()=>{
-      console.log('다야가');
-      resolve("보석광산으로");
+      resolve();
       },2000);
     });
   }
 
-
-  //await  networkRequest();  //await는 오직 async 함수 내부에서만 사용 가능하다.
   async function getUser(){
-    await  networkRequest();
     await  networkRequest();
      return "움직였습니다.";
   }
 
-  const user = getUser();
-  user.then((name)=>console.log(name))
+  async function  getTodo() {
+    await networkRequest();
+    return ['청소하기', '밥먹기'];
+  }
+
+   async function getData() {
+    const user = await getUser();
+    console.log(user);
+    const todo = await getTodo();
+    console.log(todo);
+    console.log(`${user} 그리고 나서 ${todo}를 합니다.`);
+   } 
   
 
+  getData(); 
+  //getData함수를 호출하면 await된 getUer를 기다리고
+  // getUser는 await된 networkRequest를 기다리고 
+  //networkRequest는 2초를 딜레이 하게 된다. 그 후 console.log(user)를 출력한다.
+  
 }
 
 export default App;
