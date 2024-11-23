@@ -14,8 +14,8 @@ function App() {
   function getTodo(){
     return new Promise((resolve,reject) =>{
       setTimeout(()=>{
-        resolve('빵만들기');
-      // reject(new Error('에러: 학교 운영하기.'));
+      //  resolve('빵만들기');
+       reject(new Error('에러: 학교 운영하기.'));
       },2000);
     });
   }
@@ -27,14 +27,15 @@ function App() {
     console.log(todo);
   })
 
-//Promise.any() : 전달하는 Promise 중에 가장 먼저 오는 Promise의 값을 가진다.
-//const promise는 모든 Promise가 실패해야지만 실패를 반환한다. AggregateError: All promises were rejected
-const promise = Promise.any([getName(),getTodo()]);
-promise.then((data)=>{
-  console.log(data +"any");
-}).catch((error)=>{
+//Promise.race: 전달하는 Promise 중 제일 빠른 Promise가 반환된다. any와 다르게 실패값도 마찬가지이다.
+
+const promise = Promise.race([getName(), getTodo()]);
+ promise.then((data)=>{
+  console.log(data+"race")
+ }).catch((error)=>{
   console.log(error);
-})
+ })
+
 }
 
 export default App;
