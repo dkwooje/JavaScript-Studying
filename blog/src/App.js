@@ -16,10 +16,8 @@ function App() {
     });
   }
 
-  //getUser가 비동기이기 때문에 networkRequest()를 기다리지 않고 바로 return을 실행한다. 
-  //하지만 await를 붙이면 await가 붙여진 함수호출을 기다리고 다음을 진행할 수 있다.
-  //async와 await를 사용하면 비동기 함수를 동기적으로 사용할 수 있다.
-  /*
+
+  //await  networkRequest();  //await는 오직 async 함수 내부에서만 사용 가능하다.
   async function getUser(){
     await  networkRequest();
     await  networkRequest();
@@ -28,23 +26,7 @@ function App() {
 
   const user = getUser();
   user.then((name)=>console.log(name))
-  */
-
-  //위의 async를 Chaining으로 만들어 보았다.
-  function getUserPromise(){
-    return networkRequest()
-    .then(()=>{
-      return networkRequest();
-    })
-    .then(()=>{
-      return "움직였습니다.";
-    });
-  }
-
-  const user = getUserPromise();
-  user.then((name)=>console.log(name))
-
-
+  
 
 }
 
