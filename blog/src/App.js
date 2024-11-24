@@ -2,13 +2,9 @@
 
 function App() {
 
-function one(){
-  function two(){
-    console.trace();
-  }
-  two();
-}
-one();
+console.assert(1+1 ===3)
+console.assert(1+1 ===2)
+
 
 }
 export default App;
@@ -20,3 +16,4 @@ export default App;
 //4. console.table: 콘솔로 표현하는 배열을 테이블화
 //5. console.time : 시간 측정
 //6. console.trace : 코드가 어떤 함수로 부터 출력되는지 추적 
+//7. console.assert() : 콘솔 내부가 false라면 경고
