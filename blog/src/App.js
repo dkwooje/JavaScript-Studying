@@ -9,17 +9,17 @@ function App() {
     { name: '포도', price: 1500},
   ]
 
-  const item = fruits.findIndex((fruit) => { 
-      if(fruit.price === 400 ){
-        return true
-      }
-      return false
-  })
+  const Exist = fruits.some((fruit)=>{
+    if(fruit.price > 600){
+      return true
+    }
+    return false
+  });
 
-  console.log(item);
+  console.log(Exist);
+
 }
 export default App;
 
 //배열 함수들
-//findIndex(): 배열에서 찾고싶은 객체를 요소가 아닌 인덱스값을 찾는 함수
-//조건에 맞지 않는다면 -1값을 반환한다.
+//some(): 배열 안에서 조건이 하나라도 맞는 객체를 찾는다.
