@@ -2,22 +2,26 @@
 
 function App() {
 
-const numbers = [10,4,2,8];
+  const cart = [
+    {
+     name: '사과',
+     price: 500
+    },
+    {
+     name: '바나나',
+     price: 700
+    },
+    {
+     name: '레몬',
+     price: 300
+    },
+  ]
+  
+ const allPrice = cart.reduce((acc,cur)=>{
+  return acc + cur.price
+ },0)
 
-
-const smallest = numbers.reduce((accumulator,currentValue)=>{
-  if(accumulator > currentValue){
-    return currentValue
-  }
-  return accumulator;
-}) //초기값을 넣어주지 않으면 첫번쨰 요소는 스킵하고 두번째 요소부터 시작한다.
-    //그리고 초기값으로 첫번째 요소가 된다.
-// accumulator:  - currentValue: - return: -
-// accumulator:  10 currentValue: 4 return: 4
-// accumulator:  4 currentValue: 2 return: 2
-// accumulator:  2 currentValue: 8 return: 2
-
-console.log(smallest);
+ console.log(allPrice);
 
 }
 export default App;
