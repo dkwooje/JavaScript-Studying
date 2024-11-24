@@ -2,30 +2,22 @@
 
 function App() {
 
-const numbers = [1,2,3,4];
+const numbers = [10,4,2,8];
 
-//forEach
-let total1 = 0;
 
-numbers.forEach(number =>{
-  total1 = total1 + number;
-})
+const smallest = numbers.reduce((accumulator,currentValue)=>{
+  if(accumulator > currentValue){
+    return currentValue
+  }
+  return accumulator;
+}) //초기값을 넣어주지 않으면 첫번쨰 요소는 스킵하고 두번째 요소부터 시작한다.
+    //그리고 초기값으로 첫번째 요소가 된다.
+// accumulator:  - currentValue: - return: -
+// accumulator:  10 currentValue: 4 return: 4
+// accumulator:  4 currentValue: 2 return: 2
+// accumulator:  2 currentValue: 8 return: 2
 
-console.log(total1);
-
-//reduce
-//accumulator: 현재까지 누적된 값을 의미
-//currentValue: 각 배열의 요소를 의미
-const total2 = numbers.reduce((accumulator,currentValue)=>{
-   return accumulator + currentValue
-}, 0) //accumulator의 초기값: 0
-//accumulator: 0  currentValue: 1  return:  1
-//accumulator: 1  currentValue: 2  return:  3
-//accumulator: 3  currentValue: 3  return:  6
-//accumulator: 6  currentValue: 4  return:  10
-
-console.log(total2);
-
+console.log(smallest);
 
 }
 export default App;
