@@ -17,3 +17,4 @@ export default App;
 //5. console.time : 시간 측정
 //6. console.trace : 코드가 어떤 함수로 부터 출력되는지 추적 
 //7. console.assert() : 콘솔 내부가 false라면 경고
+//https://developer.mozilla.org/ko/docs/Web/API/console
