@@ -2,12 +2,14 @@
 
 function App() {
 
-console.time("타이머1");
-console.time("타이머2");
-for (let i=0; i<5000000000; i++){}
-console.timeEnd("타이머1");
-for (let i=0; i<5000000000; i++){}
-console.timeEnd("타이머2");
+function one(){
+  function two(){
+    console.trace();
+  }
+  two();
+}
+one();
+
 }
 export default App;
 
@@ -17,3 +19,4 @@ export default App;
 //3. console.Error, console.warn :콘솔에 경고 UI 추가
 //4. console.table: 콘솔로 표현하는 배열을 테이블화
 //5. console.time : 시간 측정
+//6. console.trace : 코드가 어떤 함수로 부터 출력되는지 추적 
