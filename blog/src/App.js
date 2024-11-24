@@ -1,22 +1,32 @@
 
 
 function App() {
-//변수 값 교환하기
-  let a = 1;
-  let b = 2;
 
-  let temp = a
-  a = b
-  b = temp
+  function getAnimals(){
+    return ['강아지','고양이', '오리'];
+  }
 
-  console.log(a, b);
+ //  const animals = getAnimals();
 
-//배열로 변수 값 교환.
-let c = 3;
-let d = 4;
+ // const dog = animals[0];
+ // const cat = animals[1];
 
-[c,d] = [d,c];
-console.log(c,d);
+ // console.log(dog,cat);
+//////////////////////////////////////////////////////////////////////////////
+
+  
+ // const dog = getAnimals()[0];
+ // const cat = getAnimals()[1];
+
+// console.log(dog,cat);
+
+//////////////////////////////////////////////////////////////////////////////
+
+ [dog, cat] = getAnimals();
+
+console.log(dog,cat);
+
+
 
 
 }
