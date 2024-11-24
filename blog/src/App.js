@@ -1,15 +1,22 @@
 
 
 function App() {
+//변수 값 교환하기
+  let a = 1;
+  let b = 2;
 
-  //배열 구조 분해 할당.
-  const animals = ['강아지','고양이','오리','소'];
+  let temp = a
+  a = b
+  b = temp
 
-  
-  //강아지와 고양이는 문자형, rest는 배열형으로 출력
-  //...은 스프레드 연산자로 나머지 요소를 배열로 할당 한다.
-  const [dog, cat, ...rest] =animals;
-  console.log(dog, cat, rest);
+  console.log(a, b);
+
+//배열로 변수 값 교환.
+let c = 3;
+let d = 4;
+
+[c,d] = [d,c];
+console.log(c,d);
 
 
 }
