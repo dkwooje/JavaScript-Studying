@@ -8,18 +8,21 @@ function App() {
     { name: '귤', price: 400},
     { name: '포도', price: 1500},
   ]
+//키와값 형태의 객체 배열에서 단순 문자열 배열로 바꿈
+  const priceTags = fruits.map((fruit)=>{   
+    return `${fruit.name} : ${fruit.price}원`
+  });
 
-  const cheapFruits = fruits.filter((fruit)=>{
-        if(fruit.price <= 600){
-          return true
-        }
-        return false
-  })
+//키와 값 형태로 유지할 수 있다.
+  const priceValue = fruits.map((fruit) => { 
+    return { name: `맛있는 ${fruit.name}`, priceTag: `${fruit.price}원` };
+  });
 
-  console.log(cheapFruits);
+  console.log(priceTags);
   console.log(fruits);
+  console.log(priceValue);
 }
 export default App;
 
-// filter(): 배열에서 조건에 맞는 특정 요소만 골라서 새 배열로 만들어 준다.
-// 원본 배열은 변화가 없다.
+// map(): 원본 배열의 요소를 다른 형태로 변환해에 담아서 새로운 배열로 만든다.
+//원본배열은 바뀌지 않는다.
