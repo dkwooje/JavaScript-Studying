@@ -3,21 +3,14 @@
 function App() {
 
   //배열 구조 분해 할당.
-  const animals = ['강아지','고양이','오리'];
+  const animals = ['강아지','고양이','오리','소'];
 
-  const dog = animals[0];
-  const cat = animals[1];
-  console.log(dog);
-  console.log(cat);
+  
+  //강아지와 고양이는 문자형, rest는 배열형으로 출력
+  //...은 스프레드 연산자로 나머지 요소를 배열로 할당 한다.
+  const [dog, cat, ...rest] =animals;
+  console.log(dog, cat, rest);
 
-  const [dog1, cat1] = animals;
-  console.log(dog1, cat1);
-
-  const [dog2, ,duck2] = animals;
-  console.log(dog2, duck2);
-
-  const [dog3, cat3, duck3="꽥꽥", cow3="소"] =animals;
-  console.log(duck3, cow3);
 
 }
 export default App;
