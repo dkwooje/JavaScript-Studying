@@ -9,8 +9,8 @@ function App() {
     { name: '포도', price: 1500},
   ]
 
-  const item = fruits.find((fruit, index) => { 
-      if(fruit.price === 500 && index === 0){
+  const item = fruits.findIndex((fruit) => { 
+      if(fruit.price === 400 ){
         return true
       }
       return false
@@ -21,5 +21,5 @@ function App() {
 export default App;
 
 //배열 함수들
-//인덱스 값이 필요하다면 콜백함수 두번째 인자에 index를 추가한다.
-//find 함수: 배열 안에서 특정 조건이 맞는 객체를 찾을 때 사용 한다.
+//findIndex(): 배열에서 찾고싶은 객체를 요소가 아닌 인덱스값을 찾는 함수
+//조건에 맞지 않는다면 -1값을 반환한다.
