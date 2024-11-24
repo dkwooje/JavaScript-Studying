@@ -9,17 +9,17 @@ function App() {
     { name: '포도', price: 1500},
   ]
 
-  const Exist = fruits.some((fruit)=>{
-    if(fruit.price > 600){
+  const isOver = fruits.every((fruit)=>{
+    if(fruit.price > 100){
       return true
     }
     return false
-  });
+  })
+  
+  console.log(isOver)
 
-  console.log(Exist);
 
 }
 export default App;
 
-//배열 함수들
-//some(): 배열 안에서 조건이 하나라도 맞는 객체를 찾는다.
+// every(): 배열 안의 모든 요소가 특정 조건에 맞는다면 true를 반환한다.
