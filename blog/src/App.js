@@ -9,17 +9,17 @@ function App() {
     { name: '포도', price: 1500},
   ]
 
-  const isOver = fruits.every((fruit)=>{
-    if(fruit.price > 100){
-      return true
-    }
-    return false
+  const cheapFruits = fruits.filter((fruit)=>{
+        if(fruit.price <= 600){
+          return true
+        }
+        return false
   })
-  
-  console.log(isOver)
 
-
+  console.log(cheapFruits);
+  console.log(fruits);
 }
 export default App;
 
-// every(): 배열 안의 모든 요소가 특정 조건에 맞는다면 true를 반환한다.
+// filter(): 배열에서 조건에 맞는 특정 요소만 골라서 새 배열로 만들어 준다.
+// 원본 배열은 변화가 없다.
