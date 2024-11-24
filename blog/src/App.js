@@ -2,32 +2,26 @@
 
 function App() {
 
-  function getAnimals(){
-    return ['강아지','고양이', '오리'];
-  }
 
- //  const animals = getAnimals();
+const animals ={
+  dog: '강아지',
+  cat: '고양이',
+  duck: '오리'
+}
 
- // const dog = animals[0];
- // const cat = animals[1];
+const dog1 = animals.dog;
+const cat1 = animals.cat;
+const duck1 = animals.duck;
 
- // console.log(dog,cat);
-//////////////////////////////////////////////////////////////////////////////
-
-  
- // const dog = getAnimals()[0];
- // const cat = getAnimals()[1];
-
-// console.log(dog,cat);
-
-//////////////////////////////////////////////////////////////////////////////
-
- [dog, cat] = getAnimals();
-
-console.log(dog,cat);
+console.log(dog1,cat1,duck1);
 
 
-
+ //객체 구조 분해 할당.
+ //기존 객체와 같은 이름을 가져야 한다.
+ //위치를 바꿔도 생략도 수정도 가능하다
+ const {dog,cat,duck} = animals
+ console.log(dog,cat,duck);
+ console.log(duck,dog);
 
 }
 export default App;
